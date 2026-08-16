@@ -1,98 +1,88 @@
 # -week-8-wdi-life-expectancy-capstone
-Predicting Life Expectancy in African Countries Using World Bank WDI
+# 🌍 Predicting Life Expectancy in African Countries Using World Bank WDI
 
-AnalystLab Africa Data Science Internship — Week 8 Capstone
 
-Project overview
 
-This project investigates whether socioeconomic, health, education, infrastructure, demographic, environmental and technology indicators from the World Bank World Development Indicators (WDI) can be used to predict life expectancy across African countries.
+##  Live Demo
 
-Research question: Can a country's life expectancy be predicted using World Bank development indicators?
+👉 https://african-life-expectancy.streamlit.app/
 
-Dataset
+##  Project Overview
 
-Source: World Bank World Development Indicators (WDI): https://datatopics.worldbank.org/world-development-indicators/
+This project uses the World Bank World Development Indicators (WDI)
+dataset to predict life expectancy across African countries using
+machine learning.
 
-The project focuses on 54 African countries and 2000–2024. The target is Life expectancy at birth, total (years) (SP.DYN.LE00.IN).
+The project covers **54 African countries** and the period
+**2000–2024**.
 
-Methodology
+The objective is to investigate whether socioeconomic, health,
+education, infrastructure, demographic, environmental and technology
+indicators can be used to predict life expectancy.
 
-Load and inspect WDI data.
+##  Research Question
 
-Filter to African countries.
+> Can a country's life expectancy be predicted using development
+> indicators from the World Bank World Development Indicators dataset?
 
-Select relevant development indicators.
+##  Machine Learning
 
-Reshape the WDI data into country-year observations.
+Three regression models were evaluated:
 
-Handle missing predictor values using median imputation in the modeling pipeline.
+- Linear Regression
+- Random Forest Regressor
+- Gradient Boosting Regressor
 
-Apply log transformation to GDP per capita.
+The **Gradient Boosting Regressor** achieved the best performance.
 
-Perform EDA and correlation analysis.
+| Metric | Result |
+|---|---:|
+| MAE | 1.742 years |
+| RMSE | 2.280 years |
+| R² | 0.865 |
 
-Train models using 2000–2019.
+##  Dataset
 
-Evaluate on 2020–2024.
+The project uses the World Bank World Development Indicators dataset.
 
-Compare Linear Regression, Random Forest and Gradient Boosting.
+**Source:**  
+https://datatopics.worldbank.org/world-development-indicators/
 
-Deploy the best model with Streamlit.
+The analysis focuses on:
 
-Model performance
+- 54 African countries
+- 2000–2024
+- Life expectancy as the target variable
+- Economic indicators
+- Health indicators
+- Education indicators
+- Infrastructure indicators
+- Demographic indicators
+- Environmental indicators
+- Technology indicators
 
-Model
+##  Deployment
 
-MAE
+The machine-learning model was deployed using **Streamlit**.
 
-RMSE
+👉 **Live application:**  
+https://african-life-expectancy.streamlit.app/
 
-R²
+## ⚠️ Limitations
 
-Gradient Boosting
+This model identifies predictive relationships rather than causal
+relationships. Feature importance should therefore not be interpreted
+as proof that changing a particular indicator will directly cause
+life expectancy to change.
 
-1.742
+The application is intended for educational and analytical purposes.
 
-2.280
+## 👩🏽‍💻 Author
 
-0.865
+**Jostina Ndavi**
 
-Gradient Boosting was the best-performing model. MAE of 1.742 years means predictions were about 1.74 years away from observed life expectancy on average. R² of 0.865 means approximately 86.5% of the variation in the holdout data was explained by the model.
+Data Science / Machine Learning
 
-Deployment
-
-Run locally:
-
-pip install -r requirements.txt
-streamlit run app.py
-
-Required model artifacts:
-
-life_expectancy_model.joblib
-
-model_metadata.joblib
-
-Repository structure
-
-wdi-life-expectancy-capstone/
-├── app.py
-├── life_expectancy_model.joblib
-├── model_metadata.joblib
-├── feature_importance.csv
-├── model_comparison.csv
-├── requirements.txt
-├── WDI_Life_Expectancy_Capstone.ipynb
-├── README.md
-└── charts/
-
-Limitations
-
-This is a predictive model, not a causal model. Feature importance does not prove that changing an indicator will cause life expectancy to change. WDI also contains substantial missingness across indicators, so the project uses a selected subset.
-
-Author
-
-Jostina Ndavi
-
-AnalystLab Africa Data Science Internship — Week 8 Capstone
+**AnalystLab Africa Data Science Internship — Week 8 Capstone**
 
 #AnalystLabAfrica
